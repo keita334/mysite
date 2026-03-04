@@ -1,1 +1,2 @@
-# How to use this program
+# Usage
+使い方を書いていく
