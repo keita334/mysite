@@ -23,3 +23,8 @@
 ## メモ
 
 必要に応じて、実際の運用に合わせてこのREADMEを更新してください。
+
+## Mitutoyo 計測連携
+
+- 仕様メモ: `mitutoyo_it007r_setup.md`
+- 取得スクリプト: `capture_it007r.py`
