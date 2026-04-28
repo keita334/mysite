@@ -1,0 +1,6 @@
+{
+  "nozzle_temp": 230,
+  "extrusion_gain": 1.25,
+  "bed_temp": 70,
+  "fan_speed": 100
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3Dprinter | CustomSlicer</title>
+    <meta
+      name="description"
+      content="CustomSlicer とテスト出力 gcode をまとめた 3Dprinter 公開ページ"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fb;
+        --card: #ffffff;
+        --text: #1d2433;
+        --muted: #5a6375;
+        --border: #d9dfec;
+        --accent: #1d73e8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        background: linear-gradient(180deg, #f7f8fb 0%, #eef2ff 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(28px, 5vw, 40px);
+      }
+
+      p.lead {
+        margin: 0 0 28px;
+        color: var(--muted);
+      }
+
+      section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 16px;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 20px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>3Dprinter</h1>
+      <p class="lead">
+        このページは公開用のエントリーページです。CustomSlicer 本体と testprint
+        データにアクセスできます。
+      </p>
+
+      <section>
+        <h2>構成</h2>
+        <ul>
+          <li><a href="./CustomSlicer/">CustomSlicer/</a>: Blender ベースのカスタムスライサー</li>
+          <li><a href="./testprint/">testprint/</a>: テスト出力の gcode 一式</li>
+          <li><a href="./README.md">README.md</a>: ディレクトリ説明</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>主な目的</h2>
+        <ul>
+          <li>スライス設定の検証と管理</li>
+          <li>出力済み gcode の記録</li>
+          <li>3D プリンターでの試作サイクル効率化</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
