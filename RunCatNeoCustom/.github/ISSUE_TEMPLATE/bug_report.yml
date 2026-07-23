@@ -1,0 +1,75 @@
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English only. One issue per bug — file related-but-distinct bugs separately. See [CONTRIBUTING.md](https://github.com/runcat-dev/RunCatNeo/blob/main/CONTRIBUTING.md).
+
+  - type: input
+    id: app-version
+    attributes:
+      label: "App Version"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: "Device Model (iMac/MacBook/Mac mini/etc.)"
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: "OS Version"
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: "Describe the bug"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "How to reproduce"
+      value: |
+        1.
+        2.
+        3.
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected behavior"
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots (optional)"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Check List"
+      options:
+        - label: "I have read [CONTRIBUTING.md](https://github.com/runcat-dev/RunCatNeo/blob/main/CONTRIBUTING.md)."
+          required: true
+        - label: "I reinstalled the app, rebooted my Mac, and the bug still reproduces."
+          required: true
+        - label: "No duplicate exists. I will file any related-but-distinct bugs as separate issues."
+          required: true

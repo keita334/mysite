@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RunCat Neo</title>
+    <meta name="keywords" content="RunCat,macOS,cat,system,indicator,menubar,CPU" />
+    <meta name="author" content="Kyome22" />
+    <meta name="description" content="Cat living in the menubar." />
+    <meta property="og:url" content="https://runcat-dev.github.io/RunCatNeo/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RunCat Neo" />
+    <meta property="og:description" content="Cat living in the menubar." />
+    <meta property="og:site_name" content="RunCat Neo" />
+    <meta
+      property="og:image"
+      content="https://runcat-dev.github.io/RunCatNeo/images/og_thumbnail.png"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,400i,600,600i,700,700i" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="module">
+      import { loadMarkdown } from "https://hacknock.github.io/lobsterjs/lobster.js";
+      const language = new URLSearchParams(location.search).get("lang") === "ja" ? "ja" : "en";
+      document.documentElement.lang = language;
+      const source = language === "ja" ? "./content.ja.md" : "./content.md";
+      loadMarkdown(source, document.getElementById("content"));
+    </script>
+  </body>
+</html>

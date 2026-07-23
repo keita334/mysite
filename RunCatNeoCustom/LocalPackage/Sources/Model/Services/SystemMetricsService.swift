@@ -1,0 +1,74 @@
+/*
+ SystemMetricsService.swift
+ Model
+
+ Created by Takuto Nakamura on 2026/05/07.
+ Copyright 2026 Kyome22 (Takuto Nakamura)
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+import DataSource
+import SystemInfoKit
+
+struct SystemMetricsService {
+    private let appStateClient: AppStateClient
+    private let systemInfoObserverClient: SystemInfoObserverClient
+    private let userDefaultsRepository: UserDefaultsRepository
+
+    var currentSystemInfoBundle: SystemInfoBundle {
+        systemInfoObserverClient.currentSystemInfo()
+    }
+
+    init(_ appDependencies: AppDependencies) {
+        self.appStateClient = appDependencies.appStateClient
+        self.systemInfoObserverClient = appDependencies.systemInfoObserverClient
+        self.userDefaultsRepository = .init(appDependencies.userDefaultsClient)
+    }
+
+    func stopMonitoring() {
+        systemInfoObserverClient.stopMonitoring()
+    }
+
+    func startMonitoring() {
+        let configuration = userDefaultsRepository.systemMetricsConfiguration
+        systemInfoObserverClient.toggleActivation([
+            SystemInfoType.cpu: true,
+            SystemInfoType.memory: configuration.monitorsMemory,
+            SystemInfoType.storage: configuration.monitorsStorage,
+            SystemInfoType.battery: configuration.monitorsBattery,
+            SystemInfoType.network: configuration.monitorsNetwork,
+        ])
+        systemInfoObserverClient.startMonitoring(Double(userDefaultsRepository.updateInterval.seconds))
+    }
+
+    func toggleSystemMetricsActivation(type: SystemInfoType, isOn: Bool) {
+        systemInfoObserverClient.toggleActivation([type: isOn])
+    }
+
+    func updateMetrics(from systemInfoBundle: SystemInfoBundle) {
+        appStateClient.send(\.metrics, default: .init()) { metrics in
+            metrics.systemInfoBundle = systemInfoBundle
+            if let value = systemInfoBundle.cpuInfo?.percentage.value {
+                metrics.cpuRingBuffer.append(value)
+            }
+            if let value = systemInfoBundle.memoryInfo?.percentage.value {
+                metrics.memoryRingBuffer.append(value)
+            }
+        }
+    }
+
+    func emitConfigurationChange() {
+        appStateClient.send(\.systemMetricsConfigurationChanges, ())
+    }
+}

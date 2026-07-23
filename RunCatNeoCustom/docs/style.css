@@ -1,0 +1,454 @@
+:root {
+  --lbs-bg: #f5f5f5;
+  --lbs-surface: #ffffff;
+  --lbs-ink: #2c2f36;
+  --lbs-ink-soft: #4a4f5a;
+  --lbs-muted: #606060;
+  --lbs-line: #e2e2e2;
+  --lbs-accent: #5f9ea0;
+  --lbs-accent-strong: #008b8b;
+  --lbs-accent-soft: #e3eeef;
+  --lbs-code-bg: #ededed;
+  --lbs-radius: 14px;
+  --lbs-shadow: 0 1px 2px rgba(44, 47, 54, 0.04), 0 8px 24px rgba(44, 47, 54, 0.06);
+  --lbs-shadow-strong: 0 2px 4px rgba(44, 47, 54, 0.05), 0 14px 32px rgba(44, 47, 54, 0.1);
+  --lbs-font-sans: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --lbs-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--lbs-bg);
+  color: var(--lbs-ink);
+  font-family: var(--lbs-font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#content {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+/* ----- Header ----- */
+
+.lbs-header {
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--lbs-line);
+  text-align: center;
+}
+
+.lbs-header .lbs-heading-1 {
+  margin: 0;
+  font-style: italic;
+  font-size: clamp(2.75rem, 8vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.lbs-header .lbs-paragraph {
+  margin: 0.85rem 0 0;
+  color: var(--lbs-ink-soft);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.lbs-header .lbs-paragraph a {
+  border-bottom: none;
+}
+
+/* ----- Hero (lead, demo, download) ----- */
+
+.lbs-header + .lbs-paragraph {
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--lbs-ink-soft);
+}
+
+.lbs-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.lbs-paragraph:has(.lbs-image) {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.lbs-image[src*="demo"] {
+  width: 480px;
+  border-radius: var(--lbs-radius);
+  box-shadow: var(--lbs-shadow-strong);
+}
+
+.lbs-image[src*="download_on_app_store"] {
+  height: 56px;
+  width: auto;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.lbs-paragraph:has(.lbs-image[src*="download_on_app_store"]) {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.lbs-paragraph a:active .lbs-image[src*="download_on_app_store"] {
+  opacity: 0.7;
+  transform: translateY(2px);
+}
+
+/* macOS requirement line directly under the App Store badge */
+.lbs-paragraph:has(.lbs-image[src*="download_on_app_store"]) + .lbs-paragraph {
+  text-align: center;
+  color: var(--lbs-muted);
+  font-size: 0.9rem;
+}
+
+/* ----- Headings ----- */
+
+.lbs-heading-2 {
+  margin: 3.5rem 0 1rem;
+  font-size: 1.65rem;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  scroll-margin-top: 1.5rem;
+}
+
+.lbs-heading-3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  color: var(--lbs-ink);
+}
+
+/* ----- Body text ----- */
+
+.lbs-paragraph {
+  margin: 0.85rem 0;
+  color: var(--lbs-ink-soft);
+}
+
+.lbs-strong {
+  color: var(--lbs-ink);
+  font-weight: 600;
+}
+
+.lbs-emphasis {
+  font-style: italic;
+}
+
+.lbs-ul,
+.lbs-ol {
+  padding-left: 1.4rem;
+  margin: 1rem 0;
+  color: var(--lbs-ink-soft);
+}
+
+.lbs-list-item {
+  margin: 0.45rem 0;
+}
+
+.lbs-list-item::marker {
+  color: var(--lbs-accent);
+}
+
+/* ----- Links ----- */
+
+.lbs-paragraph a,
+.lbs-list-item a,
+.lbs-details a {
+  color: var(--lbs-accent-strong);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 139, 139, 0.25);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.lbs-paragraph a:hover,
+.lbs-list-item a:hover,
+.lbs-details a:hover {
+  color: var(--lbs-accent);
+  border-bottom-color: var(--lbs-accent);
+}
+
+/* ----- Inline code ----- */
+
+.lbs-code-span {
+  font-family: var(--lbs-font-mono);
+  font-size: 0.88em;
+  background: var(--lbs-code-bg);
+  color: var(--lbs-accent-strong);
+  padding: 0.12em 0.45em;
+  border-radius: 6px;
+}
+
+/* ----- Feature cards (silent table / Warp) ----- */
+
+.lbs-table.lbs-table-silent {
+  display: block;
+  margin: 1.5rem 0;
+  border: 0;
+}
+
+.lbs-table-silent thead,
+.lbs-table-silent tbody {
+  display: block;
+}
+
+.lbs-table-silent tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lbs-table-silent tr:has(th:nth-child(3)) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.lbs-table-silent tr:last-child {
+  margin-bottom: 0;
+}
+
+.lbs-table-silent th {
+  display: block;
+  background: var(--lbs-surface);
+  border: 1px solid var(--lbs-line);
+  border-radius: var(--lbs-radius);
+  padding: 1.5rem;
+  text-align: left;
+  font-weight: 400;
+  box-shadow: var(--lbs-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lbs-table-silent th:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--lbs-shadow-strong);
+  border-color: var(--lbs-accent);
+}
+
+.lbs-table-silent th .lbs-heading-3 {
+  margin: 0 0 0.5rem;
+}
+
+.lbs-table-silent th .lbs-paragraph {
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+/* ----- Image + list columns (metrics / runner sections) ----- */
+
+.lbs-table-silent tr:has(.lbs-image) {
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.lbs-table-silent tr:has(.lbs-image) th {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.lbs-table-silent tr:has(.lbs-image) th:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.lbs-table-silent tr:has(.lbs-image) .lbs-paragraph {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+}
+
+.lbs-table-silent tr:has(.lbs-image) .lbs-ul {
+  margin: 0;
+}
+
+/* ----- Screenshots ----- */
+
+.lbs-image[src*="system_metrics"],
+.lbs-image[src*="custom_metrics"],
+.lbs-image[src*="custom_runner"] {
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--lbs-radius);
+  box-shadow: var(--lbs-shadow);
+}
+
+/* ----- Blockquote ----- */
+
+.lbs-blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.4rem;
+  background: var(--lbs-surface);
+  border: 1px solid var(--lbs-line);
+  border-left: 4px solid var(--lbs-accent);
+  border-radius: 10px;
+  box-shadow: var(--lbs-shadow);
+}
+
+.lbs-blockquote .lbs-paragraph {
+  margin: 0;
+  color: var(--lbs-ink);
+}
+
+/* ----- Details / FAQ ----- */
+
+.lbs-details {
+  background: var(--lbs-surface);
+  border: 1px solid var(--lbs-line);
+  border-radius: 12px;
+  padding: 0.25rem 1.1rem;
+  margin: 0.65rem 0;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lbs-details:hover {
+  border-color: rgba(95, 158, 160, 0.5);
+}
+
+.lbs-details[open] {
+  border-color: var(--lbs-accent);
+  box-shadow: 0 6px 18px rgba(95, 158, 160, 0.12);
+}
+
+.lbs-summary {
+  cursor: pointer;
+  padding: 0.85rem 1.75rem 0.85rem 0;
+  font-weight: 600;
+  color: var(--lbs-ink);
+  list-style: none;
+  position: relative;
+}
+
+.lbs-summary::-webkit-details-marker {
+  display: none;
+}
+
+.lbs-summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--lbs-accent);
+  transition: transform 0.2s ease;
+}
+
+.lbs-details[open] .lbs-summary::after {
+  content: "−";
+}
+
+.lbs-details .lbs-paragraph {
+  margin: 0 0 0.9rem;
+}
+
+/* ----- Footer ----- */
+
+.lbs-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--lbs-line);
+  color: var(--lbs-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.lbs-footer .lbs-paragraph {
+  margin: 0.35rem 0;
+  color: var(--lbs-muted);
+}
+
+.lbs-footer a {
+  color: var(--lbs-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.lbs-footer a:hover {
+  color: var(--lbs-accent-strong);
+  border-bottom-color: var(--lbs-accent-strong);
+}
+
+/* ----- Language switcher (footer) ----- */
+
+.lbs-footer .lbs-strong {
+  color: var(--lbs-accent-strong);
+  font-weight: 700;
+}
+
+/* ----- Legal pages (restrained, document-like header) ----- */
+
+body.legal .lbs-header {
+  text-align: left;
+}
+
+body.legal .lbs-header .lbs-heading-1 {
+  font-size: 1.9rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+body.legal .lbs-header .lbs-paragraph {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+body.legal .lbs-header + .lbs-paragraph {
+  max-width: none;
+  margin: 0.85rem 0;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 640px) {
+  #content {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .lbs-image[src*="demo"] {
+    width: 100%;
+  }
+
+  .lbs-table-silent tr,
+  .lbs-table-silent tr:has(th:nth-child(3)),
+  .lbs-table-silent tr:has(.lbs-image) {
+    grid-template-columns: 1fr;
+  }
+
+  .lbs-table-silent tr:has(.lbs-image) {
+    gap: 1.5rem;
+  }
+
+  .lbs-heading-2 {
+    margin-top: 2.75rem;
+  }
+}
