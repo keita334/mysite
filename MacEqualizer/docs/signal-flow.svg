@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 610" width="1200" height="610" role="img" aria-label="MacEqualizer の音の流れ: アプリの音を Process Tap で取り込み、EQ・エコー・環境の順に加工して出力デバイスへ出す。出力した音はアナライザーで分析して画面に表示する">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Segoe UI", sans-serif; fill: #e9edf1; }
+    .title { font-size: 26px; font-weight: 700; }
+    .subtitle { font-size: 15px; fill: #9aa1a9; }
+    .step { font-size: 13px; font-weight: 700; fill: #9aa1a9; letter-spacing: 0.04em; }
+    .icon { font-size: 30px; text-anchor: middle; }
+    .icon-small { font-size: 22px; }
+    .name { font-size: 16px; font-weight: 700; text-anchor: middle; }
+    .note { font-size: 11.5px; fill: #b4bac1; text-anchor: middle; }
+    .label { font-size: 15px; }
+    .caption { font-size: 11.5px; fill: #8b929a; }
+    .flow { stroke: #aeb4bb; stroke-width: 2; fill: none; }
+    .setting { stroke: #7f8790; stroke-width: 1.6; stroke-dasharray: 5 5; fill: none; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#aeb4bb"/>
+    </marker>
+    <marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7f8790"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="610" rx="20" fill="#14161a" stroke="#2a2e34"/>
+  <text class="title" x="40" y="56">MacEqualizer の音の流れ</text>
+  <text class="subtitle" x="40" y="86">ほかのアプリの音を横取りして加工し、いまの出力デバイスへ出し直します</text>
+
+  <!-- アプリの音 -->
+  <text class="step" x="40" y="126">アプリの音</text>
+  <g>
+    <rect x="40" y="140" width="190" height="50" rx="10" fill="#1f2328" stroke="#343a42"/>
+    <text class="icon-small" x="54" y="173">🎵</text><text class="label" x="90" y="171">Apple Music</text>
+    <rect x="40" y="202" width="190" height="50" rx="10" fill="#1f2328" stroke="#343a42"/>
+    <text class="icon-small" x="54" y="235">🎧</text><text class="label" x="90" y="233">Spotify</text>
+    <rect x="40" y="264" width="190" height="50" rx="10" fill="#1f2328" stroke="#343a42"/>
+    <text class="icon-small" x="54" y="297">🌐</text><text class="label" x="90" y="295">ブラウザ</text>
+    <rect x="40" y="326" width="190" height="50" rx="10" fill="#1f2328" stroke="#343a42"/>
+    <text class="icon-small" x="54" y="359">🎮</text><text class="label" x="90" y="357">ほかのアプリ</text>
+  </g>
+  <path class="flow" d="M230,165 C258,165 262,250 284,250"/>
+  <path class="flow" d="M230,227 C258,227 262,250 284,250"/>
+  <path class="flow" d="M230,289 C258,289 262,250 284,250"/>
+  <path class="flow" d="M230,351 C258,351 262,250 284,250"/>
+  <path class="flow" d="M284,250 L300,250" marker-end="url(#arrow)"/>
+
+  <!-- ① 取り込み -->
+  <text class="step" x="302" y="166">① 取り込み</text>
+  <rect x="302" y="180" width="160" height="140" rx="14" fill="#2a2117" stroke="#f28f36" stroke-width="1.5"/>
+  <text class="icon" x="382" y="226">📥</text>
+  <text class="name" x="382" y="258">Process Tap</text>
+  <text class="note" x="382" y="280">全アプリの音を取り込む</text>
+  <text class="note" x="382" y="298">元の音はミュート</text>
+  <text class="caption" x="382" y="344" text-anchor="middle">※ このアプリ自身は除外</text>
+  <text class="caption" x="382" y="361" text-anchor="middle">(ループを防ぐ)</text>
+  <path class="flow" d="M462,250 L498,250" marker-end="url(#arrow)"/>
+
+  <!-- ② 加工 -->
+  <text class="step" x="500" y="126">② 加工</text>
+  <rect x="500" y="140" width="440" height="220" rx="16" fill="#1a1d22" stroke="#3a404a" stroke-width="1.5"/>
+  <text x="520" y="170" font-size="14" font-weight="700" fill="#cfd4da">🎛️ MacEqualizer (オーディオ専用スレッド)</text>
+
+  <rect x="516" y="190" width="124" height="134" rx="12" fill="#5491fa" fill-opacity="0.12" stroke="#5491fa" stroke-width="1.5"/>
+  <text class="icon" x="578" y="234">🎚️</text>
+  <text class="name" x="578" y="268">EQ</text>
+  <text class="note" x="578" y="290">8 バンド</text>
+  <text class="note" x="578" y="307">パラメトリック</text>
+
+  <rect x="658" y="190" width="124" height="134" rx="12" fill="#f5ce47" fill-opacity="0.12" stroke="#f5ce47" stroke-width="1.5"/>
+  <text class="icon" x="720" y="234">🔁</text>
+  <text class="name" x="720" y="268">エコー</text>
+  <text class="note" x="720" y="290">実験的</text>
+  <text class="note" x="720" y="307">ピンポンも</text>
+
+  <rect x="800" y="190" width="124" height="134" rx="12" fill="#a173f5" fill-opacity="0.12" stroke="#a173f5" stroke-width="1.5"/>
+  <text class="icon" x="862" y="234">🏛️</text>
+  <text class="name" x="862" y="268">環境</text>
+  <text class="note" x="862" y="290">ホール・スタジオ</text>
+  <text class="note" x="862" y="307">などの響き</text>
+
+  <path class="flow" d="M640,257 L656,257" marker-end="url(#arrow)"/>
+  <path class="flow" d="M782,257 L798,257" marker-end="url(#arrow)"/>
+  <path class="flow" d="M924,257 L940,257"/>
+  <path class="flow" d="M940,257 L988,257" marker-end="url(#arrow)"/>
+
+  <!-- ③ 出力 -->
+  <text class="step" x="990" y="166">③ 出力</text>
+  <rect x="990" y="180" width="170" height="140" rx="14" fill="#18241b" stroke="#77d45e" stroke-width="1.5"/>
+  <text class="icon" x="1075" y="226">🔊</text>
+  <text class="name" x="1075" y="258">出力デバイス</text>
+  <text class="note" x="1075" y="280">スピーカー・ヘッドホン</text>
+  <text class="note" x="1075" y="298">切り替えに自動で追従</text>
+
+  <!-- ④ 表示: 出力した音を分析 -->
+  <path class="flow" d="M965,257 L965,395 L840,395 L840,418" marker-end="url(#arrow)"/>
+  <text class="step" x="760" y="412">④ 表示</text>
+  <rect x="760" y="420" width="160" height="96" rx="14" fill="#16212b" stroke="#75a1cc" stroke-width="1.5"/>
+  <text class="icon" x="840" y="460">📊</text>
+  <text class="name" x="840" y="488">アナライザー</text>
+  <text class="note" x="840" y="506">FFT で周波数ごとに</text>
+
+  <path class="flow" d="M920,452 C955,452 955,433 988,433" marker-end="url(#arrow)"/>
+  <path class="flow" d="M920,484 C955,484 955,499 988,499" marker-end="url(#arrow)"/>
+  <rect x="990" y="410" width="170" height="46" rx="10" fill="#1f2328" stroke="#343a42"/>
+  <text class="icon-small" x="1004" y="442">📈</text><text class="label" x="1040" y="439">EQ グラフの後ろ</text>
+  <rect x="990" y="476" width="170" height="46" rx="10" fill="#1f2328" stroke="#343a42"/>
+  <text class="icon-small" x="1004" y="508">✨</text><text class="label" x="1040" y="505">ビジュアル</text>
+
+  <!-- 操作 → 設定 -->
+  <rect x="500" y="420" width="230" height="96" rx="14" fill="#1f2328" stroke="#343a42"/>
+  <text class="icon" x="540" y="476">🧑‍💻</text>
+  <text x="572" y="462" font-size="16" font-weight="700">あなたの操作</text>
+  <text x="572" y="484" font-size="11.5" fill="#b4bac1">EQ の点・数値 / プリセット</text>
+  <text x="572" y="501" font-size="11.5" fill="#b4bac1">環境 / エコー / 電源</text>
+  <path class="setting" d="M615,420 L615,364" marker-end="url(#arrow-dim)"/>
+  <text class="caption" x="625" y="396">設定 (音を止めずに受け渡し)</text>
+
+  <!-- 凡例 -->
+  <path class="flow" d="M40,566 L84,566" marker-end="url(#arrow)"/>
+  <text class="caption" x="94" y="570">音の流れ</text>
+  <path class="setting" d="M190,566 L234,566" marker-end="url(#arrow-dim)"/>
+  <text class="caption" x="244" y="570">設定の流れ</text>
+  <text class="caption" x="1160" y="570" text-anchor="end">Core Audio Process Tap (macOS 14.2 以降) を使用</text>
+</svg>
